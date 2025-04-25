@@ -1,0 +1,46 @@
+{% extends 'admin_navigation.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container py-4">
+    <div class="card shadow-sm border-0 rounded-lg">
+        <div class="card-header bg-white border-0">
+            <h2 class="text-center font-weight-bold text-dark mb-0">Add New Service</h2>
+        </div>
+        <div class="card-body p-4">
+            <form action="" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                {% csrf_token %}
+                
+                <div class="form-group mb-3">
+                    <label for="serviceName" class="form-label">Service Name</label>
+                    <input type="text" class="form-control" id="serviceName" name="cat" placeholder="Enter service name" required>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="serviceImage" class="form-label">Service Image</label>
+                    <div class="custom-file">
+                        <input type="file" class="form-control" id="serviceImage" name="image" required>
+                        <small class="text-muted">Upload an image that represents this service</small>
+                    </div>
+                </div>
+                
+                <div class="form-group mb-4">
+                    <label for="serviceDesc" class="form-label">Service Description</label>
+                    <textarea class="form-control" id="serviceDesc" name="desc" rows="4" placeholder="Describe what this service offers to customers" required></textarea>
+                </div>
+                
+                <div class="d-grid gap-2 mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Add Service</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if error %}
+<script>
+    alert('Add 1 new service Successfully');
+    window.location = "{% url 'view_service' %}";
+</script>
+{% endif %}
+{% endblock %}

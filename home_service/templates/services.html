@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+	<div class="w3l_banner_info" style="height:10px">
+		<div class="slider1">
+			<div class="callbacks_container">
+				<ul class="rslides" id="slider3">
+					<li>
+						<div class="slider1-img" style="height:90px">
+							<div class="slider_banner_info">		
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //banner-slider -->
+</div>
+</header>
+
+
+<section class="bannerbottom py-lg-5 py-md-4 py-md-3 py-2" style="margin-top:2%">
+    <div class="text-center my-5">
+        <span class="h1 text-secondary" style="font-weight: 800;">All Services</span>
+    </div><hr>
+
+<div class="container">
+<div class="row">
+    {% for i in ser %}
+<div class="col-md-4 col-sm-12 w3_ban1">
+<div class="card h-100 p-4">
+  <img style="height: 300px;" class="card-img-top" src="{{i.image.url}}" alt="Card image cap">
+  <div class="card-body">
+	  <h5 class="card-title">{{i.category}} <span style="color:red"></h5>
+    <p class="card-text">{{i.desc}}</p>
+    <a href="{% url 'explore_services' i.id %}" class="btn btn-primary"> Explore</a>
+  </div>
+</div>
+</div>
+    {% endfor %}
+
+</div>
+</div>
+</div>
+</section>
+
+{% endblock %}

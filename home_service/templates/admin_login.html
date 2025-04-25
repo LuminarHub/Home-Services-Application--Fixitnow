@@ -1,0 +1,102 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+
+{% if error == "pat" %}
+<script>
+	alert('Logged in successfully');
+	window.location = '{% url 'admin_home' %}';
+</script>
+{% endif %}
+
+{% if error == "notmember" %}
+<script>
+	alert('Your information is pending. Please update your profile first, then continue this service');
+	window.location = '{% url 'service_home' %}';
+</script>
+{% endif %}
+
+{% if error == "pat2" %}
+<script>
+	alert('Logged in successfully');
+	window.location = '{% url 'admin_home' %}';
+</script>
+{% endif %}
+
+{% if error == "not" %}
+<script>
+	alert('Username & Password are not matching');
+</script>
+{% endif %}
+
+
+	<div class="w3l_banner_info" style="height:10px">
+		<div class="slider1">
+			<div class="callbacks_container">
+				<ul class="rslides" id="slider3">
+					<li>
+						<div class="" style="height:90px; background-color:  rgb(22, 18, 18);">
+							<div class="slider_banner_info">
+
+
+							</div>
+						</div>
+					</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //banner-slider -->
+</div>
+</header>
+
+<section class="contact  py-lg-5 py-md-4 py-md-3 py-2" id="contact" style="margin-top: 20px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<form action="" class="mt-5" method="post">
+					<div class="text-center">
+						<span class="" style="font-weight: 800; font-size: 3em;">Admin Login</span>
+					</div>
+					{%csrf_token%}
+					<div>
+						<label class="form-text" for="">Username</label>
+						<input class="form-control" type="text" name="uname" id="" placeholder="Enter your Username">
+					</div>
+					<div>
+						<label class="form-text" for="">Password</label>
+						<input class="form-control" type="password" name="pwd" id="" placeholder="Enter password">
+					</div>
+					<div class="mt-3 text-center">
+						<button class="btn" type="submit">Login</button>
+					</div>
+					<div class="mt-5">
+						<span>
+							<span class="fw-bold" style="font-weight: bolder;">Security and Privacy Information:</span> Often located at the bottom of the page,
+							this section may include links to the platform's terms of service, privacy policy,
+							and information about data security measures implemented by the platform.
+						</span>
+					</div>
+					<div class="mt-3">
+						<span>
+							<span class="fw-bold" style="font-weight: bolder;">Contact Information:</span>
+							Contact details such as email address or customer support phone number may be provided 
+							for users who encounter difficulties logging in or have other inquiries.
+						</span>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-6">
+				{% comment %} <img class="w-100" src="{%static 'images/admin_login.png'%}" alt=""> {% endcomment %}
+				<img style="border-radius: 10px;" class="w-100 mt-5" src="https://t3.ftcdn.net/jpg/05/11/90/30/360_F_511903098_hAj7jEpQREs3M9VYGGiBl2g9EDBvB15F.jpg" alt="">
+
+			</div>
+		</div>
+	</div>
+</section>
+	<!-- //contact -->
+
+{% endblock %}

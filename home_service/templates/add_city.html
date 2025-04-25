@@ -1,0 +1,26 @@
+{% extends 'admin_navigation.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container">
+<div class="signup-main" style="width:100%;margin-top:0">
+	<div class="signup-head bg-light">
+		<h1 class="pt-0 mt-0">Add City</h1>
+	</div>
+	<div class="signup-block">
+		<form action="" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<input type="text" name="ci" placeholder="City Name" required="">
+			<input type="submit" value="Add City" style="margin-top:10%">
+		</form>
+	</div>
+</div>
+</div>
+
+{% if error %}
+<script>
+	alert('Add 1 new City Successfully');
+	window.location = "{% url 'view_city' %}";
+</script>
+{% endif %}
+{% endblock %}
